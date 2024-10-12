@@ -24,7 +24,6 @@ public class DetalleUsuarioService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // Cambiar la búsqueda de nomusuario a codigo
         Usuario usuario = usuarioService.obtenerUsuarioXcodigo(username);
         if (usuario == null) {
             throw new UsernameNotFoundException("Usuario no encontrado: " + username);
@@ -42,7 +41,7 @@ public class DetalleUsuarioService implements UserDetailsService {
 
     private UserDetails crearUserDetail(Usuario usuario, List<GrantedAuthority> authorityList) {
         return new User(
-                usuario.getCodigo(),  // Cambiar de nomusuario a codigo
+                usuario.getCodigo(),
                 usuario.getPassword(),
                 usuario.getActivo(),
                 true,
