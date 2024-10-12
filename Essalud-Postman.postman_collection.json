@@ -12,6 +12,9 @@
 				{
 					"name": "http://localhost:8085/api/v1/auth/login?codigo=allontop&password=123456",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -193,7 +196,7 @@
 			"name": "Ambos Roles (Coordinador-Gestor)",
 			"item": [
 				{
-					"name": "localhost:8081/api/general",
+					"name": "localhost:8081/api/paciente",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -212,14 +215,14 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "localhost:8081/api/general",
+							"raw": "localhost:8081/api/paciente",
 							"host": [
 								"localhost"
 							],
 							"port": "8081",
 							"path": [
 								"api",
-								"general"
+								"paciente"
 							]
 						}
 					},
