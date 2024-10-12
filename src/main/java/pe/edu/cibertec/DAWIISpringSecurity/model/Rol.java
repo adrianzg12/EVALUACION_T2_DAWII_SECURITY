@@ -16,7 +16,7 @@ public class Rol {
     private Integer idrol;
 
     @Column(nullable = false, unique = true)
-    private String nomrol;
+    private String nombre;
 
     @ManyToMany(mappedBy = "roles")
     private Set<Usuario> usuarios;

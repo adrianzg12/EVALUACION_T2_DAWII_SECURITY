@@ -13,7 +13,7 @@ import java.util.Set;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idusuario;
+    private Integer id;
 
     @Column(unique = true, nullable = false)
     private String codigo;
@@ -31,8 +31,8 @@ public class Usuario {
             fetch = FetchType.EAGER
     )
     @JoinTable(
-            name = "usuario_rol",
-            joinColumns = @JoinColumn(name = "idusuario"),
+            name = "rol_usuario",
+            joinColumns = @JoinColumn(name = "id"),
             inverseJoinColumns = @JoinColumn(name = "idrol")
     )
     private Set<Rol> roles;

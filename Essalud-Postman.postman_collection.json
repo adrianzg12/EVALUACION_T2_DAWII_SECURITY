@@ -1,0 +1,231 @@
+{
+	"info": {
+		"_postman_id": "307016ae-35da-422c-9f71-aef6b0868de3",
+		"name": "Essalud-Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38291930"
+	},
+	"item": [
+		{
+			"name": "CrearToken",
+			"item": [
+				{
+					"name": "http://localhost:8085/api/v1/auth/login?codigo=allontop&password=123456",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/v1/auth/login?codigo=allontop&password=123456",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							],
+							"query": [
+								{
+									"key": "codigo",
+									"value": "allontop"
+								},
+								{
+									"key": "password",
+									"value": "123456"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Server",
+			"item": [
+				{
+					"name": "http://localhost:9000/oauth2/token",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "secret",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "client",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "codigo",
+									"value": "adrian",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9000/oauth2/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Coordinador",
+			"item": [
+				{
+					"name": "localhost:8081/api/coordinador",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiI5OWJlYTIwYi1hYzBhLTQ0OTYtODE1Ni01MWZjOGUzNTJiM2QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjbGllbnQiLCJhdWQiOiJjbGllbnQiLCJuYmYiOjE3Mjg3MDgzMzcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6OTAwMCIsImV4cCI6MTcyODcxMDEzNywiaWF0IjoxNzI4NzA4MzM3LCJqdGkiOiI1YmExZTM2ZS02MTA0LTRlNDAtYmVhNS1lMTdiMDJlZmQ0NDAifQ.XfhXzWEmZRzTu3m4fMFUOEvC6azjFp4G05Y9-OR-20T5NSqec32DMrb_y02FuqMke5E0KSdUGe87p2ZEf9JjMY3PI3QNeVeg2R3G3IbV_wyqu1Q-EfyAvZc38BUmXRDWQPAw79jJhMEt9zLR4iTK7yz3nq6kg8tpgRcWpRq3Mq1Qoq3UbRc5CgHftakoJXm_wHb44FdbVqr0OFah2lDdMONKM5N7Thp6PMkLNB3u6wvXguRsLJiFAM_IcJz0uc0HIwg41MzsA4udARnxOWDj_6WP8c7S4vC-UcDo9KldFXC2uygNsd5xFIH0jH1edz-wHiE7eK9CtBPjm34Y-8cy3A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:8081/api/coordinador",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"coordinador"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gestor",
+			"item": [
+				{
+					"name": "localhost:8081/api/gestor",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiI5OWJlYTIwYi1hYzBhLTQ0OTYtODE1Ni01MWZjOGUzNTJiM2QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjbGllbnQiLCJhdWQiOiJjbGllbnQiLCJuYmYiOjE3Mjg3MDgzMzcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6OTAwMCIsImV4cCI6MTcyODcxMDEzNywiaWF0IjoxNzI4NzA4MzM3LCJqdGkiOiI1YmExZTM2ZS02MTA0LTRlNDAtYmVhNS1lMTdiMDJlZmQ0NDAifQ.XfhXzWEmZRzTu3m4fMFUOEvC6azjFp4G05Y9-OR-20T5NSqec32DMrb_y02FuqMke5E0KSdUGe87p2ZEf9JjMY3PI3QNeVeg2R3G3IbV_wyqu1Q-EfyAvZc38BUmXRDWQPAw79jJhMEt9zLR4iTK7yz3nq6kg8tpgRcWpRq3Mq1Qoq3UbRc5CgHftakoJXm_wHb44FdbVqr0OFah2lDdMONKM5N7Thp6PMkLNB3u6wvXguRsLJiFAM_IcJz0uc0HIwg41MzsA4udARnxOWDj_6WP8c7S4vC-UcDo9KldFXC2uygNsd5xFIH0jH1edz-wHiE7eK9CtBPjm34Y-8cy3A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:8081/api/gestor",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"gestor"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ambos Roles (Coordinador-Gestor)",
+			"item": [
+				{
+					"name": "localhost:8081/api/general",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJraWQiOiI5OWJlYTIwYi1hYzBhLTQ0OTYtODE1Ni01MWZjOGUzNTJiM2QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjbGllbnQiLCJhdWQiOiJjbGllbnQiLCJuYmYiOjE3Mjg3MDgzMzcsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6OTAwMCIsImV4cCI6MTcyODcxMDEzNywiaWF0IjoxNzI4NzA4MzM3LCJqdGkiOiI1YmExZTM2ZS02MTA0LTRlNDAtYmVhNS1lMTdiMDJlZmQ0NDAifQ.XfhXzWEmZRzTu3m4fMFUOEvC6azjFp4G05Y9-OR-20T5NSqec32DMrb_y02FuqMke5E0KSdUGe87p2ZEf9JjMY3PI3QNeVeg2R3G3IbV_wyqu1Q-EfyAvZc38BUmXRDWQPAw79jJhMEt9zLR4iTK7yz3nq6kg8tpgRcWpRq3Mq1Qoq3UbRc5CgHftakoJXm_wHb44FdbVqr0OFah2lDdMONKM5N7Thp6PMkLNB3u6wvXguRsLJiFAM_IcJz0uc0HIwg41MzsA4udARnxOWDj_6WP8c7S4vC-UcDo9KldFXC2uygNsd5xFIH0jH1edz-wHiE7eK9CtBPjm34Y-8cy3A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:8081/api/general",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"general"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
