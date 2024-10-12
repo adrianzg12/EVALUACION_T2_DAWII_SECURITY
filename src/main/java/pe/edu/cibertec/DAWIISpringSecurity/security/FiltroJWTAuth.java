@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 public class FiltroJWTAuth extends OncePerRequestFilter {
 
-    private final String CLAVE = "@BellavistaCallao"; // Asegúrate de que esta clave sea segura en producción
+    private final String CLAVE = "@BellavistaCallao";
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
@@ -35,7 +35,6 @@ public class FiltroJWTAuth extends OncePerRequestFilter {
             }
             filterChain.doFilter(request, response);
         } catch (ExpiredJwtException | UnsupportedJwtException | MalformedJwtException ex) {
-            // Manejo de excepciones
             response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token inválido o expirado");
         }
     }
