@@ -37,7 +37,6 @@ public class AuthController {
             @RequestParam("password") String password
     ) {
         try {
-            // Intentar autenticar al usuario
             Authentication authentication = authenticationManager
                     .authenticate(new UsernamePasswordAuthenticationToken(codigo, password));
             if (authentication.isAuthenticated()) {
@@ -49,12 +48,12 @@ public class AuthController {
                         .token(token)
                         .build(), HttpStatus.OK);
             } else {
-                return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED); // Respuesta cuando la autenticación falla
+                return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED);
             }
         } catch (BadCredentialsException ex) {
-            return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED); // Usuario o contraseña incorrectos
+            return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED);
         } catch (Exception ex) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR); // Manejo general de excepciones
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -63,7 +62,7 @@ public class AuthController {
         List<GrantedAuthority> authorityList = detalleUsuarioService.obtenerRolesUsuario(usuario.getRoles());
         return Jwts.builder()
                 .setId(usuario.getIdusuario().toString())
-                .setSubject(usuario.getEmail())  // Sujeto puede ser el email
+                .setSubject(usuario.getEmail())
                 .claim("authorities", authorityList.stream().map(GrantedAuthority::getAuthority)
                         .collect(Collectors.toList()))
                 .setIssuedAt(new Date(System.currentTimeMillis()))
