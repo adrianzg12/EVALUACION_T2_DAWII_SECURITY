@@ -43,7 +43,7 @@ public class AuthController {
                 Usuario objUsuario = usuarioService.obtenerUsuarioXcodigo(codigo);
                 String token = generarToken(objUsuario);
                 return new ResponseEntity<>(UsuarioResponseDTO.builder()
-                        .idusuario(objUsuario.getIdusuario())
+                        .idusuario(objUsuario.getId())
                         .codigo(objUsuario.getCodigo())
                         .token(token)
                         .build(), HttpStatus.OK);
@@ -61,7 +61,7 @@ public class AuthController {
         String clave = "@BellavistaCallao";
         List<GrantedAuthority> authorityList = detalleUsuarioService.obtenerRolesUsuario(usuario.getRoles());
         return Jwts.builder()
-                .setId(usuario.getIdusuario().toString())
+                .setId(usuario.getId().toString())
                 .setSubject(usuario.getEmail())
                 .claim("authorities", authorityList.stream().map(GrantedAuthority::getAuthority)
                         .collect(Collectors.toList()))
