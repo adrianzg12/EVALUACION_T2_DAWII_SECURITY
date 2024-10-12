@@ -28,4 +28,16 @@ CREATE TABLE rol_usuario (
     CONSTRAINT user_role_FK_1 FOREIGN KEY (idrol) REFERENCES rol(idrol) ON DELETE CASCADE
 );
 
-
+CREATE TABLE paciente (
+    idPaciente INT AUTO_INCREMENT PRIMARY KEY,
+    nombrePac VARCHAR(255) NOT NULL,
+    apellido VARCHAR(255) NOT NULL,
+    dni VARCHAR(8) UNIQUE NOT NULL,
+    fecha_nacimiento DATE,
+    direccion VARCHAR(255),
+    telefono VARCHAR(20),
+    correo VARCHAR(255),
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    usuario_id INT,
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
+);
