@@ -1,6 +1,6 @@
 Proyecto actualizado.
 
-Integrantes:
+Integrantes::
 
 1.- Adrian Fernando Llontop Romero 
 2.- Luis Felipe Saldaña Chuquivigel
